@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-export export.sh
+source export.sh
 
 # baixando dependendicas
 apt update
