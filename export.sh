@@ -1,0 +1,7 @@
+#! /bin/bash
+SERVERIP=3.14.104.204
+MINIO_ACCESS_KEY=crauss 
+MINIO_SECRET_KEY=craussOps
+S3_URL=http://$SERVERIP
+S3_ACCESS_KEY=crauss
+S3_SECRET_KEY=craussOps
