@@ -20,7 +20,7 @@ mc config host add myminio http://$SERVERIP:9000 $MINIO_ACCESS_KEY $MINIO_SECRET
 mc mb myminio/docs
 # baixando e instalando o minio_uploader
 cd /srv
-cp <caminho>/minio_uploader.zip .
+wget https://github.com/craussferraz/minio_CI/blob/master/minio_uploader.zip
 unzip minio_uploader.zip
 cd minio_uploader
 pip3 install pipenv
