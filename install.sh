@@ -14,13 +14,17 @@ chmod +x /usr/local/bin/minio
 chmod +x /usr/local/bin/mc
 # inicializando o minio
 minio --quiet server /srv/data &
+sleep 13
 # configurando o minio
 mc config host add myminio http://$SERVERIP:9000 $MINIO_ACCESS_KEY $MINIO_SECRET_KEY
 # criando bucket docs
 mc mb myminio/docs
 # baixando e instalando o minio_uploader
 cd /srv
-wget https://github.com/craussferraz/minio_CI/blob/master/minio_uploader.zip
+if [ -e minio_uploader.zip ]; then
+	rm -rf minio_uploade*
+fi
+wget https://github.com/craussferraz/minio_CI/raw/master/minio_uploader.zip
 unzip minio_uploader.zip
 cd minio_uploader
 pip3 install pipenv
