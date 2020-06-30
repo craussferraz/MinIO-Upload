@@ -2,8 +2,8 @@ language: minimal
 addons:
   ssh_known_hosts: "$SERVER"
 before_install:
-- openssl aes-256-cbc -d -in export.enc -out export.sh -pass pass:$PASSWD
-- openssl aes-256-cbc -d -in crauss.enc -out crauss -pass pass:$SSHWD
+- openssl aes-256-cbc -d -in export.enc -out export.sh -pass pass:"$PASSWD"
+- openssl aes-256-cbc -d -in crauss.enc -out crauss -pass pass:"$SSHWD"
 - chmod +x export.sh
 - chmod 400 crauss
 - scp -i crauss -o "StrictHostKeyChecking=no" export.sh install.sh $USUARIO@$SERVER:/home/$USUARIO
