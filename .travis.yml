@@ -8,6 +8,6 @@ before_install:
   -in crauss.enc -out crauss -d
 - eval $(ssh-agent)
 - ssh-add crauss
-- scp -o "StrictHostKeyChecking=no" variables install.sh $USUARIO@$SERVER:/home/$USUARIO
+- scp -o "StrictHostKeyChecking=no" export.sh install.sh $USUARIO@$SERVER:/home/$USUARIO
 script:
 - ssh -o "StrictHostKeyChecking=no" $USUARIO@$SERVER "sudo ./install.sh"
