@@ -30,7 +30,7 @@ cd /srv
 if [ -e minio_uploader.zip ]; then
 	rm -rf minio_uploade*
 fi
-wget https://github.com/craussferraz/minio_CI/raw/master/minio_uploader.zip
+wget https://github.com/craussferraz/MinIO-Upload/raw/master/minio_uploader.zip
 unzip minio_uploader.zip
 cd minio_uploader
 pip3 install pipenv

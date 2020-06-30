@@ -4,7 +4,8 @@ addons:
   ssh_known_hosts: $SERVER
 
 before_script:
-    - ssh-add $crauss
-    - scp variables install.sh $USUARIO@$SERVER:/home/$USUARIO
+  - eval $(ssh-agent)
+  - ssh-add $crauss
+  - scp variables install.sh $USUARIO@$SERVER:/home/$USUARIO
 script:
-    - ssh $USUARIO@$SERVER "sudo ./install.sh"
+  - ssh $USUARIO@$SERVER "sudo ./install.sh"
