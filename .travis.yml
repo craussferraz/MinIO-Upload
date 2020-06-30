@@ -4,6 +4,6 @@ addons:
   ssh_known_hosts: $SERVER
 
 before_script:
-  - scp variables install.sh $USUARIO@$SERVER:/home/$USUARIO << $PASSWD
+  - scp -o "StrictHostKeyChecking=no" variables install.sh $USUARIO@$SERVER:/home/$USUARIO << $PASSWD
 script:
-  - ssh $USUARIO@$SERVER "sudo ./install.sh" << $PASSWD
+  - ssh -o "StrictHostKeyChecking=no" $USUARIO@$SERVER "sudo ./install.sh" << $PASSWD
