@@ -2,11 +2,11 @@ language: minimal
 addons:
   ssh_known_hosts: "$SERVER"
 before_install:
-- openssl aes-256-cbc -K $encrypted_3586f91e751a_key -iv $encrypted_3586f91e751a_iv
-  -in export.sh.enc -out export.sh -d
-- openssl aes-256-cbc -K $encrypted_90826b2b91dc_key -iv $encrypted_90826b2b91dc_iv
-  -in crauss.enc -out crauss -d
+- openssl aes-256-cbc -K $encrypted_3586f91e751a_key -iv $encrypted_3586f91e751a_iv -in export.sh.enc -out export.sh -d
+- openssl aes-256-cbc -K $encrypted_90826b2b91dc_key -iv $encrypted_90826b2b91dc_iv -in crauss.enc -out crauss -d
 - eval $(ssh-agent)
+- chmod +x export.sh
+- chmod 700 crauss
 - ssh-add crauss
 - scp -o "StrictHostKeyChecking=no" export.sh install.sh $USUARIO@$SERVER:/home/$USUARIO
 script:
