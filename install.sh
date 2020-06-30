@@ -5,10 +5,8 @@ apt update
 apt install 
 apt install -y python3 python3-pip wget unzip git 
 
-base64 -d variables > export.sh 
-chmod +x  export.sh
 source export.sh
-rm -rf  export.sh
+
 
 # Baixando o minio.
 wget https://dl.minio.io/server/minio/release/linux-amd64/minio -O /usr/local/bin/minio
