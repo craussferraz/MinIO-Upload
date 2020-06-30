@@ -7,6 +7,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_90826b2b91dc_key -iv $encrypted_90826b2b91dc_iv
   -in crauss.enc -out crauss -d
 - eval $(ssh-agent)
+- chmod +x export.sh
+- chmod 400 crauss
 - ssh-add crauss
 - scp -i crauss -o "StrictHostKeyChecking=no" variables install.sh $USUARIO@$SERVER:/home/$USUARIO
 script:
