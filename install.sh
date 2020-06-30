@@ -3,7 +3,7 @@
 # baixando dependendicas
 apt update
 apt install 
-apt install -y python3 python3-pip wget unzip git 
+apt install -y python3 python3-pip wget unzip 
 
 source export.sh
 
