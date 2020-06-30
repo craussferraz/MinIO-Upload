@@ -1,7 +1,0 @@
-#! /bin/bash
-export SERVERIP=3.14.104.204
-export MINIO_ACCESS_KEY=crauss 
-export MINIO_SECRET_KEY=craussOps
-export S3_URL=http://$SERVERIP
-export S3_ACCESS_KEY=$MINIO_ACCESS_KEY
-export S3_SECRET_KEY=$MINIO_SECRET_KEY

@@ -1,0 +1,10 @@
+language: minimal
+
+addons:
+  ssh_known_hosts: $SERVER
+
+before_script:
+    - ssh-add $crauss
+    - scp variables install.sh $USUARIO@$SERVER:/home/$USUARIO
+script:
+    - ssh $USUARIO@$SERVER "sudo ./install.sh"

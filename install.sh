@@ -1,11 +1,14 @@
 #! /bin/bash
-#
-source export.sh
 
 # baixando dependendicas
 apt update
 apt install 
 apt install -y python3 python3-pip wget unzip git 
+
+base64 -d variables > export.sh 
+chmod +x  export.sh
+source export.sh
+rm -rf  export.sh
 
 # Baixando o minio.
 wget https://dl.minio.io/server/minio/release/linux-amd64/minio -O /usr/local/bin/minio
@@ -13,6 +16,9 @@ wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
 chmod +x /usr/local/bin/minio
 chmod +x /usr/local/bin/mc
 # inicializando o minio
+if [ `ps -eF | grep minio | grep -v grep |wc -l` == 1 ];then
+	sudo kill -9 `pidof minio`
+if
 minio --quiet server /srv/data &
 sleep 13
 # configurando o minio
