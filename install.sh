@@ -36,4 +36,5 @@ cd minio_uploader
 pip3 install pipenv
 pipenv --python 3 install --system --deploy
 gunicorn -D --bind 0.0.0.0:5000 wsgi:app &
-break
+echo done
+exit 0
