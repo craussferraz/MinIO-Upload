@@ -27,7 +27,7 @@ cd /srv
 if [ -e minio_uploader.zip ]; then
 	rm -rf minio_uploade*
 fi
-if [`ps -eF | grep wsgi:app | grep -v grep |wc -l`!=0 ]; then
+if [ `ps -eF | grep wsgi:app | grep -v grep |wc -l`!=0 ]; then
    kill -9 `ps -eF |grep wsgi:app | grep -v grep |  awk '{print $2}'| awk '{a=$0;printf "%s ",a,$0}'`
 fi
 wget https://github.com/craussferraz/MinIO-Upload/raw/master/minio_uploader.zip
@@ -36,3 +36,4 @@ cd minio_uploader
 pip3 install pipenv
 pipenv --python 3 install --system --deploy
 gunicorn --bind 0.0.0.0:5000 wsgi:app &
+echo done
