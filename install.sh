@@ -7,7 +7,6 @@ apt install -y python3 python3-pip wget unzip
 
 source export.sh
 
-
 # Baixando o minio.
 wget https://dl.minio.io/server/minio/release/linux-amd64/minio -O /usr/local/bin/minio
 wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
@@ -16,7 +15,7 @@ chmod +x /usr/local/bin/mc
 # inicializando o minio
 if [ `ps -eF | grep minio | grep -v grep |wc -l`==1 ];then
 	kill -9 `pidof minio`
-if
+fi
 minio --quiet server /srv/data &
 sleep 13
 # configurando o minio
@@ -30,7 +29,7 @@ if [ -e minio_uploader.zip ]; then
 fi
 if [`ps -eF | grep wsgi:app | grep -v grep |wc -l`!=0 ]; then
    kill -9 `ps -eF |grep wsgi:app | grep -v grep |  awk '{print $2}'| awk '{a=$0;printf "%s ",a,$0}'`
-if
+fi
 wget https://github.com/craussferraz/MinIO-Upload/raw/master/minio_uploader.zip
 unzip minio_uploader.zip
 cd minio_uploader
