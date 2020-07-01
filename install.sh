@@ -21,7 +21,9 @@ sleep 13
 # configurando o minio
 mc config host add myminio http://$SERVERIP:9000 $MINIO_ACCESS_KEY $MINIO_SECRET_KEY
 # criando bucket docs
-mc mb myminio/docs
+if [ `mc ls myminio |grep docs |wc -l`!=1 ];then
+        mc mb myminio/docs
+fi
 # baixando e instalando o minio_uploader
 cd /srv
 if [ -e minio_uploader.zip ]; then
