@@ -1,4 +1,4 @@
-language: minimal
+language: shell
 addons:
   ssh_known_hosts: "$SERVER"
 before_install:
@@ -12,5 +12,6 @@ before_install:
 - ssh-add crauss
 - scp -i crauss -o "StrictHostKeyChecking=no"  export.sh install.sh $USUARIO@$SERVER:/home/$USUARIO
 deploy:
-  script: ssh -i crauss -o "StrictHostKeyChecking=no" $USUARIO@$SERVER "sudo ./install.sh"
+    provider: script
+    script: bash deploy.sh
  
