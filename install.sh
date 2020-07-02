@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# baixando dependendicas
+## baixando dependendicas
 apt update
 apt install 
 apt install -y python3 python3-pip wget unzip
